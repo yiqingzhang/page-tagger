@@ -1,0 +1,57 @@
+Annotation protocols of HomePub dataset.
+
+(1) If the contents of xxx.txt and xxx.html are different. Please tag based on xxx.txt
+
+
+(2) Emails are the only case, where you may change the content (when the email is an irregular email). All the other content must be directly copied from xxx.txt files (or equivalent xxx.html files). 
+
+
+(3) Leave comments in "comment" if you find it useful to do so. Let us know if you find something unusual, for example, if the contents of the xxx.html and xxx.txt are completely different.
+
+
+(4) If the main contents of a homepage are not in English, then we do not tag it. we mark the "is_personal_homepage" as F. Then skip this page.
+
+
+(5) If there is no email on a webpage, leave the of content of email as an empty string in the corresponding json file, for example, "email": ""
+
+
+(6) If a publication is a dissertation/thesis supervised by the owner the webpages.
+     we do not need to tag that publication since dissertation/thesis is written by the student of the owner of webpage. This case does not happen very often. If this happens, the webpage will show that publication is a supervised dissertation/thesis.
+
+
+(7) Do not include a title in the name field when tagging:
+
+    The name of "Dr. Andrew Ng", or "Prof Andrew Ng" should be "Andrew Ng".
+    The name of "Melanie Kingsley, MD" should be "Melanie Kingsley", MD is a medical degree.
+    However, if someone's name is  William Vann Rogers Jr, we want to include the Jr in the tagged name, since Jr is a generational designation.
+
+
+(8) If the owner of the webpage has more than one form of name, for example, tagged_example/40.
+
+    The owner of this page has two name forms, one with a middle name, Khalil Gibran Muhammad, and one without, Khalil Muhammad.
+
+
+    When tagging this kind of webpage, choose the most obvious name form on the page (name with the largest font in this case), so that we will tag Khalil Muhammad as the name in this webpage.
+
+    The URL of this example is https://www.hks.harvard.edu/about/faculty-staff-directory/khalil-muhammad
+
+
+
+(9) What if the text file is like this, how should we tag the publication, do we need to include the number in the publication.
+
+1. Wang, Jianzhong Qi, Ramamohanarao Kotagiri, Yu Sun, Bo Li, and Rui Zhang. Joint Optimization Approach for Personalized Recommendation Diversification. 22nd Pacific-Asia Conference on Advances in Knowledge Discovery and Data Mining (PAKDD) 2018.
+　
+2. Chuandong Yin, Rui Zhang, Jianzhong Qi, Yu Sun, and Tenglun Tan. Context-Uncertainty-Aware Chatbot Action Selection via Parameterized Auxiliary Reinforcement Learning. 22nd Pacific-Asia Conference on Advances in Knowledge Discovery and Data Mining (PAKDD) 2018.	
+
+
+Answer: we do not include the number "1. ", "2. " in the publications.
+You may want to use tag_helper.py to copy each line, and manually remove all the numbers at the beginning of the publications.
+
+
+(10) about email again:
+if there were more than one email addresses, choose the one belonging to the owner;
+if there were more than one email addresses all belonging to the owner, choose the one existing in the text file; if all existing in the text, just choose one. 
+
+
+(11) Note that our annotation does not consider the following as publication strings: (i) Master or PhD theses, (ii) working papers, (iii) seminars, invited talks, or presentations, and (iv) patents.
+
